@@ -8,6 +8,14 @@
          stage('Test') {            
             sh 'mvn test'
             junit 'target/surefire-reports/*.xml'
-         }     
+         }
+		 stage('Manual Approval') {
+			input message: 'Lanjutkan ke tahap Deploy?'
+		 }     
+		 stage('Deploy') {
+			sh './jenkins/scripts/deliver.sh'
+			sh 'sleep 60'
+			sh './jenkins/scripts/kill.sh'
+		 }
 		}	
 	}
