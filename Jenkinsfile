@@ -13,9 +13,9 @@
 			input message: 'Lanjutkan ke tahap Deploy?'
 		 }     
 		 stage('Deploy') {
-			sh 'chmod +x ./jenkins/scripts/deliver.sh && ./jenkins/scripts/deliver.sh'
+			sh './jenkins/scripts/deliver.sh'
 			sh 'sleep 60'
-			sh 'chmod +x ./jenkins/scripts/kill.sh && ./jenkins/scripts/kill.sh'
+			sh './jenkins/scripts/kill.sh'
 		 }
 		}	
 	}
